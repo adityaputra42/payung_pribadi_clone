@@ -6,7 +6,6 @@ import 'package:iconify_flutter_plus/iconify_flutter_plus.dart';
 import 'package:iconify_flutter_plus/icons/mdi.dart';
 import 'package:intl/intl.dart';
 import 'package:payung_pribadi_clone/core/common/widget/primary_button.dart';
-import 'package:payung_pribadi_clone/core/staticImage/app_icon.dart';
 import 'package:payung_pribadi_clone/core/staticImage/app_image.dart';
 import 'package:payung_pribadi_clone/core/theme/app_color.dart';
 import 'package:payung_pribadi_clone/core/theme/app_font.dart';
@@ -96,7 +95,7 @@ class HomeScreen extends StatelessWidget {
                 height(16),
                 kategoriiPilihan(context, state),
                 height(16),
-                exploreWellness(context)
+                exploreWellness(context, state)
               ],
             ),
           ),
@@ -105,7 +104,7 @@ class HomeScreen extends StatelessWidget {
     );
   }
 
-  Column exploreWellness(BuildContext context) {
+  Column exploreWellness(BuildContext context, WellnessState state) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -121,25 +120,24 @@ class HomeScreen extends StatelessWidget {
             gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisCount: 2,
               childAspectRatio: 1.2,
-              mainAxisSpacing: 8,
-              crossAxisSpacing: 8,
+              mainAxisSpacing: 16,
+              crossAxisSpacing: 16,
             ),
-            itemCount: 10,
+            itemCount: state.listWellness.length,
             itemBuilder: (context, index) => InkWell(
                 onTap: () {},
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Center(
-                      child: SvgPicture.asset(
-                        AppIcon.peopleIcon,
-                        // width: context.width(0.4),
+                      child: Image.asset(
+                        state.listWellness[index]["image"],
                         height: 60,
                       ),
                     ),
                     height(12),
                     Text(
-                      "Voucher Digital Grab Transport ${NumberFormat.currency(locale: 'id_ID', symbol: "Rp. ", decimalDigits: 0).format(20000)}",
+                      "${state.listWellness[index]['label']} ${NumberFormat.currency(locale: 'id_ID', symbol: "Rp. ", decimalDigits: 0).format(state.listWellness[index]['price'])}",
                       style: AppFont.medium14
                           .copyWith(color: Theme.of(context).indicatorColor),
                     ),
@@ -147,7 +145,7 @@ class HomeScreen extends StatelessWidget {
                     Text(
                       NumberFormat.currency(
                               locale: 'id_ID', symbol: "Rp. ", decimalDigits: 0)
-                          .format(20000),
+                          .format(state.listWellness[index]['price']),
                       style: AppFont.medium14
                           .copyWith(color: Theme.of(context).indicatorColor),
                     )

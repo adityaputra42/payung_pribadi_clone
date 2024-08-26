@@ -1,5 +1,6 @@
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:payung_pribadi_clone/core/staticImage/app_image.dart';
 
 import '../../../../core/staticImage/app_icon.dart';
 

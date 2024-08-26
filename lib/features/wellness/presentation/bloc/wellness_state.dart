@@ -18,6 +18,40 @@ sealed class WellnessState extends Equatable {
     {"image": AppIcon.maskerIcon, "label": "Konsultasi\nMedis"},
     {"image": AppIcon.moreIcon, "label": "Lihat Semua"},
   ];
+  final List<Map<String, dynamic>> listWellness = [
+    {
+      "image": AppImage.logoGrab,
+      "label": "Voucher Digital Grab Transport",
+      "price": 20000
+    },
+    {
+      "image": AppImage.indomart,
+      "label": "Voucher Digital Indomaret",
+      "price": 25000
+    },
+    {"image": AppImage.bakmiGm, "label": "Pulsa Telkomsel", "price": 50000},
+    {
+      "image": AppImage.logoGrab,
+      "label": "Voucher Digital Grab Transport",
+      "price": 50000
+    },
+    {
+      "image": AppImage.bakmiGm,
+      "label": "Voucher Digital Bakmi GM",
+      "price": 100000
+    },
+    {"image": AppImage.bakmiGm, "label": "Pulsa Telkomsel", "price": 100000},
+    {
+      "image": AppImage.logoGrab,
+      "label": "Voucher Digital Grab Transport",
+      "price": 30000
+    },
+    {
+      "image": AppImage.indomart,
+      "label": "Voucher Digital Indomaret",
+      "price": 10000
+    },
+  ];
   WellnessState();
 
   @override
